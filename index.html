@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshwardhan Kulkarni - Senior Mobile Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 4px solid white;
+        }
+
+        h1 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .title {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            background: white;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 5px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .project-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .tech-badge {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .project-features {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .company-section {
+            margin-bottom: 40px;
+        }
+
+        .company-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #f0f0f0;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <div class="avatar">HK</div>
+            <h1>Harshwardhan Kulkarni</h1>
+            <p class="title">Senior Mobile Developer | Flutter & React Native Expert</p>
+            
+            <div class="social-links">
+                <a href="mailto:harshwardhankulkarni5@gmail.com" class="social-btn">
+                    ✉️ Email
+                </a>
+                <a href="https://linkedin.com/in/harshwardhan-kulkarni-515512229" target="_blank" class="social-btn">
+                    💼 LinkedIn
+                </a>
+                <a href="tel:+919665118464" class="social-btn">
+                    📱 Call
+                </a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Featured Projects</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+                <button class="filter-btn" onclick="filterProjects('Flutter')">Flutter</button>
+                <button class="filter-btn" onclick="filterProjects('Android')">Android</button>
+                <button class="filter-btn" onclick="filterProjects('React Native')">React Native</button>
+            </div>
+
+            <div id="projects-container">
+                <!-- OnPoint Software Services Projects -->
+                <div class="company-section">
+                    <div class="company-header">OnPoint Software Services (2023 - Present)</div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Clinical Trac</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ REST API Integration<br>
+                            ✅ Real-time Location Tracking<br>
+                            ✅ Chat Application with WebSocket<br>
+                            ✅ Healthcare Workflow Management
+                        </div>
+                        <a href="https://play.google.com/store/search?q=Clinical%20Trac%20-&c=apps&hl=en" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Voffis</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Video & Voice Call (Media Soap Integration)<br>
+                            ✅ Outlook Mail Integration<br>
+                            ✅ Real-time Chat (WebSocket + API)<br>
+                            ✅ Media Sharing (Images, Videos)
+                        </div>
+                        <a href="https://play.google.com/store/search?q=Voffis&c=apps&hl=en" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">EZ Digital</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Health Gorilla API Integration<br>
+                            ✅ Daily Check-in Survey Features<br>
+                            ✅ Medicine Reminder (Local Notifications)<br>
+                            ✅ Google Notification Integration<br>
+                            ✅ Terra Fitness API Integration
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.ezdigital.app&hl=en" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Android">
+                        <div class="project-header">
+                            <span class="project-name">Saintfarm - Organic Superstore</span>
+                            <span class="tech-badge">Kotlin</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ E-commerce Platform<br>
+                            ✅ Razorpay Payment Integration<br>
+                            ✅ Product Catalog & Cart Management<br>
+                            ✅ Order Tracking System
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.saint.saintfood&hl=en" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Android">
+                        <div class="project-header">
+                            <span class="project-name">Semiliynx</span>
+                            <span class="tech-badge">Java</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Jitsi Video Call Integration<br>
+                            ✅ Zoom SDK Integration<br>
+                            ✅ Real-time Communication Platform<br>
+                            ✅ Multi-platform Video Conferencing
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Touch Tech Services Projects -->
+                <div class="company-section">
+                    <div class="company-header">Smart Touch Tech Services LLP (2021 - 2023)</div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Home Automation Phase 1</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ REST API Authentication<br>
+                            ✅ TCP/UDP Protocol Integration<br>
+                            ✅ WiFi Device Control<br>
+                            ✅ Server/Client Architecture
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=me.techtantra.homeautomation" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Home Automation Phase 2</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ MQTT Server Connection<br>
+                            ✅ Remote Control via API<br>
+                            ✅ IoT Device Management<br>
+                            ✅ Real-time Device Status Updates
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=me.techtantra.homeautomation" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Disaster Management System</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Google Maps Integration<br>
+                            ✅ Geofencing Technology<br>
+                            ✅ Emergency Call & SMS Integration<br>
+                            ✅ YouTube Video Integration<br>
+                            ✅ PDF Document Viewer
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.disastermanagement.bmc" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Etech Tracker</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ REST API Integration<br>
+                            ✅ Google Maps Real-time Tracking<br>
+                            ✅ FCM Push Notifications<br>
+                            ✅ Location History & Analytics
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.techlead.tracker_android_app" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Android">
+                        <div class="project-header">
+                            <span class="project-name">JPIP</span>
+                            <span class="tech-badge">Android</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Role-based Access Control<br>
+                            ✅ REST API Integration<br>
+                            ✅ Media Upload & Management<br>
+                            ✅ Secure Authentication
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=in.stts.jpip" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Android">
+                        <div class="project-header">
+                            <span class="project-name">EARC</span>
+                            <span class="tech-badge">Android</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Educational & Research Platform<br>
+                            ✅ Role-based Domain Management<br>
+                            ✅ REST API Integration<br>
+                            ✅ Document Management System
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=in.stts.earc" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+
+                    <div class="project-card" data-tech="Flutter">
+                        <div class="project-header">
+                            <span class="project-name">Happy Teacher</span>
+                            <span class="tech-badge">Flutter</span>
+                        </div>
+                        <div class="project-features">
+                            ✅ Role-based Educational App<br>
+                            ✅ PDF Download & Reports<br>
+                            ✅ AWS Cloud Integration<br>
+                            ✅ Teacher Management System
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.techlead.anadishikshan&hl=en" target="_blank" class="project-link">
+                            📱 View on Play Store →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💻 Technical Expertise</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                <span class="tech-badge" style="background: #02569B;">Flutter</span>
+                <span class="tech-badge" style="background: #61DAFB;">React Native</span>
+                <span class="tech-badge" style="background: #0095D5;">Dart</span>
+                <span class="tech-badge" style="background: #F7931E;">Kotlin</span>
+                <span class="tech-badge" style="background: #007396;">Java</span>
+                <span class="tech-badge" style="background: #F7DF1E;">JavaScript</span>
+                <span class="tech-badge" style="background: #FFCA28;">Firebase</span>
+                <span class="tech-badge" style="background: #009688;">REST APIs</span>
+                <span class="tech-badge" style="background: #E10098;">GraphQL</span>
+                <span class="tech-badge" style="background: #660099;">MQTT</span>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2>📬 Get In Touch</h2>
+            <p style="color: #666; margin: 20px 0;">Open to exciting opportunities and collaborations</p>
+            <a href="mailto:harshwardhankulkarni5@gmail.com" class="social-btn" style="display: inline-flex; margin: 0 auto;">
+                Let's Connect →
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function filterProjects(tech) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach(project => {
+                if (tech === 'all') {
+                    project.style.display = 'block';
+                } else {
+                    const projectTech = project.getAttribute('data-tech');
+                    project.style.display = projectTech === tech ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
